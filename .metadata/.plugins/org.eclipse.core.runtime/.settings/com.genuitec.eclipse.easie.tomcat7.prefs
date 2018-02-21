@@ -1,0 +1,7 @@
+JDK_INSTALLATION_NAME=jdk1.7.0_79
+SERVER_ENABLEMENT=true
+START_IS_DEBUG=false
+TOMCAT_BASE=D\:\\java\\apache-tomcat-7.0.42
+TOMCAT_HOME=D\:\\java\\apache-tomcat-7.0.42
+TOMCAT_TEMP=D\:\\java\\apache-tomcat-7.0.42\\temp
+eclipse.preferences.version=1
