@@ -2,7 +2,10 @@ package com.bruce.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -27,9 +30,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Table
 public class User {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY) 
 	private Integer uid;
 	@Column
 	@NotNull(message = "{username.notnull}")

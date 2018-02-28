@@ -53,6 +53,26 @@
 		}
 	}
 	
+	function checkUsername2()
+	{
+	    var username = $("#username").val();
+	    $.ajax(
+	    {
+	        url:"${pageContext.request.contextPath}/controller/checkUsername.do?time="+new Date().getTime(),
+	        type:"get",
+	        data:{'username':username},
+	        contentType:"application/json;charset=utf-8",
+	        dataType:"json",
+	        success:function(data)
+	        {
+	        	debugger;
+	            var jsons = data.message;
+	            $("#span1").html(jsons);
+	        }
+	    });
+	}
+	
+	
 	
 	function checkUsername(){
 		// 获得文件框值:
@@ -68,7 +88,7 @@
 			}
 		};
 		// 3.打开连接
-		xhr.open("GET","${pageContext.request.contextPath}/user_findByName.action?time="+new Date().getTime()+"&username="+username,true);
+		xhr.open("GET","${pageContext.request.contextPath}/controller/{"+username+"}/checkUsername.do?time="+new Date().getTime(),true);
 		// 4.发送
 		xhr.send(null);
 	}
@@ -111,8 +131,9 @@
 					<div></div>
 					<sp:form id="registerForm" name="registerForm"
 						action="${ pageContext.request.contextPath }/user/register.action"
-						method="post" novalidate="novalidate"
-						onsubmit="return checkValidator('registerForm');" autocomplete="off"
+						method="post" 
+						commandName="user"
+						onsubmit="return checkValidator('registerForm');" 
 						modelAttribute="user">
 						<table>
 							<tbody>
@@ -120,7 +141,7 @@
 									<th><span class="requiredField">*</span>用户名:</th>
 									<td><sp:input path="username"
 											class="text easyui-validatebox tb" maxlength="20"
-											data-options="required:true" onblur="checkUsername()" /> <span
+											data-options="required:true" onblur="checkUsername2()"  /> <span
 										id="span1"></span></td>
 								</tr>
 								<tr>
@@ -169,8 +190,8 @@
 											class="text captcha easyui-validatebox tb"
 											data-options="required:true" maxlength="4" /><img
 											id="checkImg" class="captchaImage"
-											src="${pageContext.request.contextPath}/checkImg.action"
-											onclick="change()" title="点击更换验证码" /> </span></td>
+											<%-- src="${pageContext.request.contextPath}/checkImg.action" --%>
+											onclick="" title="点击更换验证码" /> </span></td>
 								</tr>
 								<tr>
 									<th>&nbsp;</th>
@@ -180,7 +201,7 @@
 								<tr>
 									<th>&nbsp;</th>
 									<td align="left" style="color: red">
-									<c:if test="${errors !=null && errors.size()>0 }">
+										<c:if test="${errors !=null && errors.size()>0 }">
 											<c:forEach items="${errors }" var="err">
 												${err.defaultMessage }
 											</c:forEach>

@@ -28,7 +28,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	protected Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
-	
+
 	@Override
 	public void save(T t) {
 		getSession().save(t);
@@ -52,7 +52,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public T findById(Long id) {
 		if (id == null) {
 			return null;
-		} else { 
+		} else {
 			return (T) getSession().get(clazz, id);
 		}
 	}

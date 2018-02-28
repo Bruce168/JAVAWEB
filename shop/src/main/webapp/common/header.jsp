@@ -26,9 +26,9 @@
 			<div class="topNav clearfix">
 				<ul>
 					<li id="headerLogin" class="headerLogin"
-						style="display: list-item;"><a href="user/toLogin.do">登录</a>|</li>
+						style="display: list-item;"><a href="controller/login.do">登录</a>|</li>
 					<li id="headerRegister" class="headerRegister"
-						style="display: list-item;"><a href="user/register.do">注册</a>|</li>
+						style="display: list-item;"><a href="controller/register.do">注册</a>|</li>
 					<li id="headerUsername" class="headerUsername"></li>
 					<li id="headerLogout" class="headerLogout"><a>[退出]</a>|</li>
 					<li><a>会员中心</a> |</li>
@@ -46,7 +46,7 @@
 		</div>
 		<div class="span24">
 			<ul class="mainNav">
-				<li><a href="./index.htm">首页</a> |</li>
+				<li><a href="index.do">首页</a> |</li>
 				<li><a href="./蔬菜分类.htm">定制套餐</a> |</li>
 				<li><a>安全频道</a> |</li>
 				<li><a>商城卡</a> |</li>

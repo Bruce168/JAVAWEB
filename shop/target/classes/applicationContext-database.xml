@@ -75,6 +75,7 @@
 			</props>
 		</property>
 		<property name="packagesToScan" value="com.bruce.model" />
+
 	</bean>
 
 	<bean id="transactionManager"
@@ -96,8 +97,7 @@
 	</tx:advice>
 
 	<aop:config>
-		<aop:advisor
-			pointcut="execution(public * com.bruce.service..*.*(..))"
+		<aop:advisor pointcut="execution(public * com.bruce.service..*.*(..))"
 			advice-ref="txAdvice" />
 	</aop:config>
 

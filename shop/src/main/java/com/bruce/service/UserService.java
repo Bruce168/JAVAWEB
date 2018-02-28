@@ -1,11 +1,12 @@
 package com.bruce.service;
 
-import java.util.List;
-
 import com.bruce.model.User;
 
-public interface UserService {
-	public List<User> list();
+public interface UserService extends BaseService<User> {
+
+	User findByCode(String code);
 	
-	public User findById(Long id);
+	User findByUsername(String username);
+
+	User findFirstByParam(String paramName, String paramValue);
 }

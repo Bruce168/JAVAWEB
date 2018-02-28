@@ -36,8 +36,7 @@
 					<div align="center" style="color: red">
 						
 					</div>
-					<sp:form id="loginForm" name="loginForm" method="post" commandName="user"  onsubmit="return checkValidator('loginForm')"
-						>
+					<sp:form id="loginForm" name="loginForm" method="post" commandName="user"  onsubmit="return checkValidator('loginForm')">
 						<table>
 							<tbody>
 								<tr>
@@ -85,7 +84,7 @@
 										<dl>
 											<dt>还没有注册账号？</dt>
 											<dd>
-												立即注册即可体验在线购物！ <a href="user/register.do">立即注册</a>
+												立即注册即可体验在线购物！ <a href="controller/register.do">立即注册</a>
 											</dd>
 										</dl>
 									</td>
