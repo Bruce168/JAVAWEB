@@ -24,7 +24,6 @@ import com.bruce.service.UserService;
 import com.bruce.utils.UUIDUtils;
 
 @Controller
-@RequestMapping("controller")
 public class UserController {
 
 	@Resource
@@ -118,14 +117,14 @@ public class UserController {
 
 	@RequestMapping(value = "checkUsername")
 	public @ResponseBody
-	Map<String,Object> checkUsername(@RequestParam String username, Model model) {
+	Map<String, Object> checkUsername(@RequestParam String username, Model model) {
 
 		User u = userService.findByUsername(username);
-		Map<String,Object> map=new HashMap<String,Object>();
+		Map<String, Object> map = new HashMap<String, Object>();
 		if (u != null) {
-			map.put("message", "用户名已经存在")  ;
-		}else{
-			map.put("message", "")  ;
+			map.put("message", "用户名已经存在");
+		} else {
+			map.put("message", "");
 		}
 
 		return map;

@@ -75,7 +75,6 @@
 			</props>
 		</property>
 		<property name="packagesToScan" value="com.bruce.model" />
-
 	</bean>
 
 	<bean id="transactionManager"
@@ -83,7 +82,6 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 		<property name="globalRollbackOnParticipationFailure" value="false" />
 	</bean>
-
 
 	<tx:advice id="txAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
@@ -100,5 +98,4 @@
 		<aop:advisor pointcut="execution(public * com.bruce.service..*.*(..))"
 			advice-ref="txAdvice" />
 	</aop:config>
-
 </beans>

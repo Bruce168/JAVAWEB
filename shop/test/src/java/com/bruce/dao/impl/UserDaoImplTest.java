@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.bruce.dao.UserDao;
+import com.bruce.dao.UserMapper;
 import com.bruce.model.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -20,7 +20,7 @@ import com.bruce.model.User;
 public class UserDaoImplTest {
 
 	@Autowired
-	private UserDao userDao;
+	private UserMapper userDao;
 
 	@Before
 	public void setUp() throws Exception {

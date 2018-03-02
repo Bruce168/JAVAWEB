@@ -4,7 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.bruce.dao.UserDao;
+import com.bruce.dao.UserMapper;
 import com.bruce.model.User;
 import com.bruce.service.UserService;
 
@@ -13,7 +13,7 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements
 		UserService {
 
 	@Resource
-	private UserDao userDao;
+	private UserMapper userDao;
 	
 	@Override
 	public User findByCode(String code) {

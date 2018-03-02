@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.bruce.dao.UserDao;
+import com.bruce.dao.UserMapper;
 import com.bruce.model.User;
 
 @Repository
-public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
+public class UserDaoImpl extends BaseDaoImpl<User> implements UserMapper {
 
 	@Override
 	public User findByCode(String code) {

@@ -1,7 +1,5 @@
 INDEX VERSION 1.126
-E:\JAVAWEB\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3922886615.index
-\ssh Maven Webapp\src\main\resources
-E:\JAVAWEB\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\785844057.index
-\ssh Maven Webapp\src\main\resources
-E:\JAVAWEB\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1009635484.index
-\webService\src
+E:\JAVAWEB\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3541776386.index
+\shop\src\main\resources
+E:\JAVAWEB\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1921700029.index
+\shop\src\main\resources
