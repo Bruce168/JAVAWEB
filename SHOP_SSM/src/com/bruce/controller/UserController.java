@@ -115,17 +115,23 @@ public class UserController extends BaseController {
 			model.addAttribute("errors", allErrors);
 		} else {
 
-			List<User> users = super.getUserService().selectByParams(user);
+			User u=new User();
+			u.setUsername(user.getUsername());
+			
+			List<User> users = super.getUserService().selectByParams(u);
 			if (users != null && users.size() > 0) {
 				model.addAttribute("message", "该用户已经存在！");
 			} else {
 				String code = UUIDUtils.getUUID();
 				user.setCode(code);
 				super.getUserService().insertSelective(user);
-				
-				String mail="mail."+user.getEmail().substring(user.getEmail().indexOf("@")+1);
-				
-				model.addAttribute("message", "注册成功，请<a href='http://www."+mail+"'>打开邮箱</a>激活用户");
+
+				String mail = "mail."
+						+ user.getEmail().substring(
+								user.getEmail().indexOf("@") + 1);
+
+				model.addAttribute("message", "注册成功，请<a href='http://www."
+						+ mail + "'>打开邮箱</a>激活用户");
 			}
 		}
 

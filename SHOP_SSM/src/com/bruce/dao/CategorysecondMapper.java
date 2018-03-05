@@ -1,6 +1,7 @@
 package com.bruce.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bruce.model.Categorysecond;
 
@@ -17,5 +18,5 @@ public interface CategorysecondMapper  {
 
 	int updateByPrimaryKey(Categorysecond record);
 
-	List<Categorysecond> selectByParams(Categorysecond record);
+	List<Categorysecond> selectByParams(Map<String,Object> map);
 }

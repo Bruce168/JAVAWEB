@@ -18,7 +18,11 @@
 	    equalToCode: {
 	        validator:function(value,param){
 	        	debugger;
-	            return param[0] == value;
+	        	var flag=false;
+	        	if(param[0] == value){
+	        		flag=true;
+	        	}
+	            return flag;
 	        },
 	        message:'验证码不正确'
 	    }
@@ -66,7 +70,7 @@
 					<sp:form id="registerForm" name="registerForm"
 						action="${ pageContext.request.contextPath }/user/register.do"
 						method="post" commandName="user"
-						onsubmit="return checkValidator('registerForm');"
+						onsubmit="return validate('registerForm');"
 						modelAttribute="user">
 						<table>
 							<tbody>
@@ -75,7 +79,7 @@
 									<td><sp:input path="username"
 											class="text easyui-validatebox tb" maxlength="20"
 											data-options="required:true"
-											onblur="checkByParamForAJAX('username','username','user/checkUsername.do','span1')" />
+											onblur="checkByParamForAJAX('username','username','${pageContext.request.contextPath}/user/checkUsername.do','span1')" />
 										<span id="span1"></span>
 									</td>
 								</tr>

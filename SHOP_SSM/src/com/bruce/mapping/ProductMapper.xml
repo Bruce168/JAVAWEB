@@ -15,6 +15,52 @@
   <sql id="Base_Column_List" >
     pid, pname, market_price, shop_price, image, pdesc, is_hot, pdate, csid
   </sql>
+  <sql id="pagination">
+        <if test="offset != null and rowCount!= null">
+            <![CDATA[
+                LIMIT #{offset},#{rowCount}
+            ]]>
+        </if>
+    </sql>
+  <select id="selectByParams" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from product
+    where 1=1
+    <if test="pid != null" >
+        and pid= #{pid,jdbcType=INTEGER}
+      </if>
+      <if test="pname != null" >
+        and pname= #{pname,jdbcType=VARCHAR}
+      </if>
+      <if test="marketPrice != null" >
+        and market_price= #{marketPrice,jdbcType=DOUBLE}
+      </if>
+      <if test="shopPrice != null" >
+        and shop_price= #{shopPrice,jdbcType=DOUBLE}
+      </if>
+      <if test="image != null" >
+        and image = #{image,jdbcType=VARCHAR}
+      </if>
+      <if test="pdesc != null" >
+        and pdesc= #{pdesc,jdbcType=VARCHAR}
+      </if>
+      <if test="isHot != null" >
+        and is_hot=#{isHot,jdbcType=INTEGER}
+      </if>
+      <if test="pdate != null" >
+        and pdate= #{pdate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="csid != null" >
+        and csid = #{csid,jdbcType=INTEGER}
+      </if>
+      <if test="orderby !=null">
+      order by #{orderby} desc 
+      </if>
+      
+      <include refid="pagination" />
+  </select>
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

@@ -1,6 +1,7 @@
 package com.bruce.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bruce.model.Product;
 
@@ -17,5 +18,5 @@ public interface ProductMapper {
 
 	int updateByPrimaryKey(Product record);
 
-	List<Product> selectByParams(Product record);
+	List<Product> selectByParams(Map<String,Object> map);
 }
