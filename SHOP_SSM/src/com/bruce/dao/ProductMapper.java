@@ -19,4 +19,12 @@ public interface ProductMapper {
 	int updateByPrimaryKey(Product record);
 
 	List<Product> selectByParams(Map<String,Object> map);
+	
+	List<Product> selectByCid(Map<String,Object> map);
+	
+	Integer countSelectByCid(Map<String,Object> map);
+	
+	List<Product> selectByCsid(Map<String,Object> map);
+	
+	Integer countSelectByCsid(Map<String,Object> map);
 }

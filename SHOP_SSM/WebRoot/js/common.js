@@ -48,3 +48,4 @@ function checkByParamForAJAX(paraName, checkWidgetName, url1, destWidgetName) {
 		}
 	});
 }
+

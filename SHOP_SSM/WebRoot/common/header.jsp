@@ -64,7 +64,7 @@
 			<ul class="mainNav">
 				<li><a href="index.do">首页</a> |</li>
 				<c:forEach items="${sessionScope.categoryategorys }" var ="category">
-					<li><a href="">${category.cname }</a> |</li>
+					<li><a href="${pageContext.request.contextPath }/product/${category.cid}/1/20/findProductListByCid.do">${category.cname }</a> |</li>
 				</c:forEach>
 				<!-- <li><a href="./蔬菜分类.htm">定制套餐</a> |</li>
 				<li><a>安全频道</a> |</li>

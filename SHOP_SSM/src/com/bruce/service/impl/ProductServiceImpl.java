@@ -45,4 +45,19 @@ public class ProductServiceImpl implements ProductService {
 		return productMapper.selectByParams(map);
 	}
 
+	public List<Product> selectByCid(Map<String,Object> map) {
+		return productMapper.selectByCid(map);
+	}
+
+	public Integer countSelectByCid(Map<String, Object> map) {
+		return productMapper.countSelectByCid(map);
+	}
+	
+	public List<Product> selectByCsid(Map<String, Object> map) {
+		return productMapper.selectByCsid(map);
+	}
+
+	public Integer countSelectByCsid(Map<String, Object> map) {
+		return productMapper.countSelectByCsid(map);
+	}
 }

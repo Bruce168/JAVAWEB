@@ -5,8 +5,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>网上商城</title>
-<link href="${pageContext.request.contextPath}/css/common.css"
-	rel="stylesheet" type="text/css" />
+<%@ include file="/common/common.jsp" %>
 <link href="${pageContext.request.contextPath}/css/product.css"
 	rel="stylesheet" type="text/css" />
 <script>
@@ -17,7 +16,7 @@
 
 </head>
 <body>
-	<%@ include file="header.jsp"%>
+	<jsp:include page="/common/header.jsp" />
 	<div class="container productContent">
 		<div class="span6">
 			<div class="hotProductCategory">
@@ -70,7 +69,8 @@
 						<div
 							style="visibility: hidden; top: 129.5px; left: 106px; position: absolute;"
 							class="zoomPreload">Loading zoom</div>
-					</div> </a>
+					</div>
+					 </a>
 
 			</div>
 			<div class="name">${product.pname}</div>
@@ -121,7 +121,8 @@
 			</form>
 			<div id="bar" class="bar">
 				<ul>
-					<li id="introductionTab"><a href="#introduction">商品介绍</a></li>
+					<li id="introductionTab"><a href="#introduction">商品介绍</a>
+					</li>
 
 				</ul>
 			</div>
