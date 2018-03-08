@@ -91,18 +91,12 @@
 						<a target="_blank" title="限时抢购 (2014-07-30 ~ 2015-01-01)">限时抢购</a>
 					</dd>
 				</dl>
-				<dl>
-					<dt></dt>
-					<dd>
-						<span> </span>
-					</dd>
-				</dl>
 			</div>
 			<form id="cartForm"
-				action="${ pageContext.request.contextPath }/cart_addCart.action"
+				action="${ pageContext.request.contextPath }/cart/addCart.do"
 				method="post">
 				<input type="hidden" name="pid"
-					value="<s:property value="model.pid"/>" />
+					value="${product.pid}" />
 				<div class="action">
 					<dl class="quantity">
 						<dt>购买数量:</dt>
@@ -123,7 +117,6 @@
 				<ul>
 					<li id="introductionTab"><a href="#introduction">商品介绍</a>
 					</li>
-
 				</ul>
 			</div>
 

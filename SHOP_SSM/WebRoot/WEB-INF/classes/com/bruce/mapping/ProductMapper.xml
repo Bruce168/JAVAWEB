@@ -21,7 +21,87 @@
                 LIMIT #{offset},#{rowCount}
             ]]>
         </if>
-    </sql>
+  </sql>
+  <sql id="Column_List_SelectByCid" >
+    pid, pname, market_price, shop_price, image, pdesc, is_hot, pdate, p.csid
+  </sql>
+  
+  <select id="countSelectByCsid" resultType="Integer" parameterType="map">
+  	SELECT 
+  	count(*)
+  	FROM product p 
+  	where 1=1
+    <if test="pid != null" >
+        and pid= #{pid,jdbcType=INTEGER}
+      </if>
+      <if test="pname != null" >
+        and pname= #{pname,jdbcType=VARCHAR}
+      </if>
+      <if test="marketPrice != null" >
+        and market_price= #{marketPrice,jdbcType=DOUBLE}
+      </if>
+      <if test="shopPrice != null" >
+        and shop_price= #{shopPrice,jdbcType=DOUBLE}
+      </if>
+      <if test="image != null" >
+        and image = #{image,jdbcType=VARCHAR}
+      </if>
+      <if test="pdesc != null" >
+        and pdesc= #{pdesc,jdbcType=VARCHAR}
+      </if>
+      <if test="isHot != null" >
+        and is_hot=#{isHot,jdbcType=INTEGER}
+      </if>
+      <if test="pdate != null" >
+        and pdate= #{pdate,jdbcType=TIMESTAMP}
+      </if>
+      <if test="csid != null" >
+        and csid = #{csid,jdbcType=INTEGER}
+      </if>
+  </select>
+  
+  <select id="selectByCsid" resultMap="BaseResultMap" parameterType="map">
+  	SELECT 
+  	<include refid="Column_List_SelectByCid" />
+  	FROM product p 
+  	INNER JOIN categorysecond cs ON p.csid=cs.csid 
+  	where 1=1
+  	<if test="csid != null" >
+      and p.csid= #{csid,jdbcType=INTEGER}
+    </if>
+    <if test="orderby != null">
+      order by #{orderby} desc 
+    </if>
+    <include refid="pagination" />
+  </select>
+  
+  <select id="countSelectByCid" resultType="Integer" parameterType="map">
+  	SELECT 
+  	count(*) 
+  	FROM product p 
+  	INNER JOIN categorysecond cs ON p.csid=cs.csid 
+  	INNER JOIN category c ON c.cid=cs.cid 
+  	where 1=1
+  	<if test="cid != null" >
+      and c.cid= #{cid,jdbcType=INTEGER}
+    </if>
+  </select>
+  
+  <select id="selectByCid" resultMap="BaseResultMap" parameterType="map">
+  	SELECT 
+  	<include refid="Column_List_SelectByCid" />
+  	FROM product p 
+  	INNER JOIN categorysecond cs ON p.csid=cs.csid 
+  	INNER JOIN category c ON c.cid=cs.cid 
+  	where 1=1
+  	<if test="cid != null" >
+      and c.cid= #{cid,jdbcType=INTEGER}
+    </if>
+    <if test="orderby != null">
+      order by #{orderby} desc 
+    </if>
+    <include refid="pagination" />
+  </select>
   <select id="selectByParams" resultMap="BaseResultMap" parameterType="map" >
     select 
     <include refid="Base_Column_List" />
@@ -54,7 +134,7 @@
       <if test="csid != null" >
         and csid = #{csid,jdbcType=INTEGER}
       </if>
-      <if test="orderby !=null">
+      <if test="orderby != null">
       order by #{orderby} desc 
       </if>
       

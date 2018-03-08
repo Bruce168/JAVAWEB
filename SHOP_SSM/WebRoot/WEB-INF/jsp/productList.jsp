@@ -1,18 +1,20 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*"
+	contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>产品列表</title>
 <%@ include file="/common/common.jsp"%>
 <link href="${pageContext.request.contextPath}/css/product.css"
 	rel="stylesheet" type="text/css" />
-	<script type="text/javascript">
+<script type="text/javascript">
 		function pageSkip(id,currentPage,rowCount,uri){
-			var url="<%=basePath%>/product/"+id+"/"+currentPage+"/"+rowCount+"/"+uri;
-			location.href=url;
-		}
-	</script>
+			var url="<%=basePath%>/product/" + id + "/" + currentPage + "/"	+ rowCount + "/" + uri;
+		location.href = url;
+	}
+</script>
 </head>
 
 <body>
@@ -52,47 +54,53 @@
 				<div id="result" class="result table clearfix">
 					<ul>
 						<c:forEach items="${pager.list }" var="p">
-							<li><a href="${pageContext.request.contextPath }/product/${p.pid}/${pager.uri}"> <img
-								src="${pageContext.request.contextPath }/${p.image}"
-								width="170" height="170" style="display: inline-block;"> <span
-								style='color:green'> ${p.pname } </span> <span class="price">
-									商城价： ￥${p.shopPrice }</span> </a></li>
+							<li><a
+								href="${pageContext.request.contextPath }/product/${p.pid}/findProductById.do">
+									<img src="${pageContext.request.contextPath }/${p.image}"
+									width="170" height="170" style="display: inline-block;">
+									<span style='color:green'> ${p.pname } </span> <span
+									class="price"> 商城价： ￥${p.shopPrice }</span> </a></li>
 						</c:forEach>
 					</ul>
 				</div>
 				<div class="pagination">
-					<span>当前第${pager.currentPage}页</span>
-					<span>共${pager.pages}页</span>
+					<span>当前第${pager.currentPage}页</span> <span>共${pager.pages}页</span>
 					<c:choose>
 						<c:when test="${1 == pager.currentPage }">
-							<span class="firstPage">&nbsp;</span> 
+							<span class="firstPage">&nbsp;</span>
 							<span class="previousPage">&nbsp;</span>
 						</c:when>
 						<c:otherwise>
-							<a class="firstPage" href="javascript: pageSkip(${pager.id },1,${pager.rowCount},'${pager.uri}');">&nbsp;</a> 
-							<a class="previousPage" href="javascript: pageSkip(${pager.id },${pager.currentPage-1},${pager.rowCount},'${pager.uri}');">&nbsp;</a>
-						</c:otherwise> 
+							<a class="firstPage"
+								href="javascript: pageSkip(${pager.id },1,${pager.rowCount},'${pager.uri}');">&nbsp;</a>
+							<a class="previousPage"
+								href="javascript: pageSkip(${pager.id },${pager.currentPage-1},${pager.rowCount},'${pager.uri}');">&nbsp;</a>
+						</c:otherwise>
 					</c:choose>
-					 <c:forEach begin="1" end="${pager.pages }" var="page" >
+					<c:forEach begin="1" end="${pager.pages }" var="page">
 						<c:choose>
 							<c:when test="${page == pager.currentPage }">
 								<span class="currentPage">${page}</span>
 							</c:when>
 							<c:otherwise>
-								<a href="javascript:pageSkip(${pager.id },${page},${pager.rowCount},'${pager.uri}');">${page }</a> 
+								<a
+									href="javascript:pageSkip(${pager.id },${page},${pager.rowCount},'${pager.uri}');">${page
+									}</a>
 							</c:otherwise>
 						</c:choose>
-					</c:forEach>  
+					</c:forEach>
 					<c:choose>
 						<c:when test="${pager.pages <= pager.currentPage }">
-							<span class="nextPage">&nbsp;</span> 
+							<span class="nextPage">&nbsp;</span>
 							<span class="lastPage">&nbsp;</span>
 						</c:when>
 						<c:otherwise>
-							<a class="nextPage"	href="javascript: pageSkip(${pager.id },${pager.currentPage+1},${pager.rowCount},'${pager.uri}');">&nbsp;</a> 
-							<a class="lastPage" href="javascript: pageSkip(${pager.id },${pager.pages},${pager.rowCount},'${pager.uri}');">&nbsp;</a>
+							<a class="nextPage"
+								href="javascript: pageSkip(${pager.id },${pager.currentPage+1},${pager.rowCount},'${pager.uri}');">&nbsp;</a>
+							<a class="lastPage"
+								href="javascript: pageSkip(${pager.id },${pager.pages},${pager.rowCount},'${pager.uri}');">&nbsp;</a>
 						</c:otherwise>
-					</c:choose> 
+					</c:choose>
 				</div>
 			</form>
 		</div>

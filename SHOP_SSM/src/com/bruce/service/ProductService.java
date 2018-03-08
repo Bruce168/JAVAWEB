@@ -12,7 +12,7 @@ public interface ProductService {
 
 	int insertSelective(Product record);
 
-	Product selectByPrimaryKey(Integer uid);
+	Product selectByPrimaryKey(Integer pid);
 
 	int updateByPrimaryKeySelective(Product record);
 
