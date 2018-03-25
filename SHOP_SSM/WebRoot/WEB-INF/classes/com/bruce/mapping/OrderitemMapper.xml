@@ -11,6 +11,48 @@
   <sql id="Base_Column_List" >
     itemid, count, subtotal, pid, oid
   </sql>
+  <resultMap id="Order_OrderItemResultMap" type="com.bruce.model.Orderitem" extends="BaseResultMap">
+  	<association property="order" javaType="com.bruce.model.Orders" >
+  		<id column="orderid" property="oid" jdbcType="INTEGER" />
+	    <result column="total" property="total" jdbcType="DOUBLE" />
+	    <result column="ordertime" property="ordertime" jdbcType="TIMESTAMP" />
+	    <result column="state" property="state" jdbcType="INTEGER" />
+	    <result column="name" property="name" jdbcType="VARCHAR" />
+	    <result column="phone" property="phone" jdbcType="VARCHAR" />
+	    <result column="addr" property="addr" jdbcType="VARCHAR" />
+	    <result column="uid" property="uid" jdbcType="INTEGER" />
+  	</association>
+  	<association property="product" javaType="com.bruce.model.Product" >
+  		<id column="productId" property="pid" jdbcType="INTEGER" />
+	    <result column="pname" property="pname" jdbcType="VARCHAR" />
+	    <result column="market_price" property="marketPrice" jdbcType="DOUBLE" />
+	    <result column="shop_price" property="shopPrice" jdbcType="DOUBLE" />
+	    <result column="image" property="image" jdbcType="VARCHAR" />
+	    <result column="pdesc" property="pdesc" jdbcType="VARCHAR" />
+	    <result column="is_hot" property="isHot" jdbcType="INTEGER" />
+	    <result column="pdate" property="pdate" jdbcType="TIMESTAMP" />
+	    <result column="csid" property="csid" jdbcType="INTEGER" />
+  	</association>
+  </resultMap>
+  
+  <select id="selectByParams" resultMap="Order_OrderItemResultMap" parameterType="map" >
+    select 
+    oi.itemid, oi.count, oi.subtotal, oi.pid, oi.oid , 
+    o.oid as orderid, total, ordertime, state, name, phone, addr, uid,
+    p.pid as productId, pname, market_price, shop_price, image, pdesc, is_hot, pdate, csid 
+    from orderitem oi inner join orders o on oi.oid=o.oid inner join product p on p.pid=oi.pid
+    where 1=1
+    <if test="itemid != null" >
+      and itemid= #{itemid,jdbcType=INTEGER}
+    </if>
+    <if test="oid != null" >
+      and oid= #{oid,jdbcType=INTEGER}
+    </if>
+    <if test="uid != null" >
+      and uid= #{uid,jdbcType=INTEGER}
+    </if>
+  </select>
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

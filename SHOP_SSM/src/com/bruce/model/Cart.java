@@ -13,7 +13,7 @@ public class Cart {
 
 	@Getter
 	@Setter
-	private Double total=0.0;
+	private Double total = 0.0;
 
 	/**
 	 * 清空购物车

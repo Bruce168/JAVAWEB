@@ -46,7 +46,7 @@
 						<c:if test="${sessionScope.user != null }">
 						style="display: list-item;"
 						</c:if>
-					><a>[退出]</a>|</li>
+					><a href="${pageContext.request.contextPath}/user/logout.do">[退出]</a>|</li>
 					<li><a>会员中心</a> |</li>
 					<li><a>购物指南</a> |</li>
 					<li><a>关于我们</a>
@@ -54,7 +54,7 @@
 				</ul>
 			</div>
 			<div class="cart">
-				<a href="./购物车.htm">购物车</a>
+				<a href="${ pageContext.request.contextPath }/cart/toCart.do">购物车</a>
 			</div>
 			<div class="phone">
 				客服热线: <strong>96008/53277764</strong>

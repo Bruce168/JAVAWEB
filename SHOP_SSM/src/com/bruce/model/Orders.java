@@ -1,85 +1,47 @@
 package com.bruce.model;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import lombok.Getter;
+import lombok.Setter;
 
 public class Orders {
-    private Integer oid;
+	@Getter
+	@Setter
+	private Integer oid;
 
-    private Double total;
+	@Getter
+	@Setter
+	private Double total;
 
-    private Date ordertime;
+	@Getter
+	@Setter
+	private Date ordertime;
 
-    private Integer state;
+	@Getter
+	@Setter
+	private Integer state;
 
-    private String name;
+	@Getter
+	@Setter
+	private String name;
 
-    private String phone;
+	@Getter
+	@Setter
+	private String phone;
 
-    private String addr;
+	@Getter
+	@Setter
+	private String addr;
 
-    private Integer uid;
+	@Getter
+	@Setter
+	private Integer uid;
 
-    public Integer getOid() {
-        return oid;
-    }
+	@Getter
+	@Setter
+	private Set<Orderitem> orderItems = new HashSet<Orderitem>();
 
-    public void setOid(Integer oid) {
-        this.oid = oid;
-    }
-
-    public Double getTotal() {
-        return total;
-    }
-
-    public void setTotal(Double total) {
-        this.total = total;
-    }
-
-    public Date getOrdertime() {
-        return ordertime;
-    }
-
-    public void setOrdertime(Date ordertime) {
-        this.ordertime = ordertime;
-    }
-
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
-    }
-
-    public String getAddr() {
-        return addr;
-    }
-
-    public void setAddr(String addr) {
-        this.addr = addr == null ? null : addr.trim();
-    }
-
-    public Integer getUid() {
-        return uid;
-    }
-
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
 }

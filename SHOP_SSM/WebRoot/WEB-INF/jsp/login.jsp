@@ -35,7 +35,7 @@
 					<div align="center" style="color: red">
 						
 					</div>
-					<sp:form id="loginForm" name="loginForm" method="post" commandName="user"  onsubmit="return checkValidator('loginForm')">
+					<sp:form id="loginForm" name="loginForm" method="post" commandName="user" action="${pageContext.request.contextPath}/user/login.do" onsubmit="return checkValidator('loginForm')">
 						<table>
 							<tbody>
 								<tr>

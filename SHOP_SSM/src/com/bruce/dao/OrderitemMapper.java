@@ -1,6 +1,7 @@
 package com.bruce.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.bruce.model.Orderitem;
 
@@ -17,5 +18,5 @@ public interface OrderitemMapper  {
 
 	int updateByPrimaryKey(Orderitem record);
 	
-	List<Orderitem> selectByParams(Orderitem record);
+	List<Orderitem> selectByParams(Map<String,Object> map);
 }

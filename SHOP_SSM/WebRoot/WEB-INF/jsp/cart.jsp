@@ -36,7 +36,7 @@
 						<td>￥${ci.value.product.shopPrice}</td> 
 						<td class="quantity" width="60">${ci.value.count}</td>
 						<td width="140"><span class="subtotal">￥${ci.value.subtotal}</span></td>
-						<td><a href="javascript:;" class="delete">删除</a></td>
+						<td><a href="${ pageContext.request.contextPath }/cart/${ci.value.product.pid }/deleteCart.do" class="delete">删除</a></td>
 					</tr>
 					</c:forEach>
 				</tbody>
@@ -48,8 +48,8 @@
 					id="effectivePoint">${cart.total }</em> 商品金额: <strong id="effectivePrice">￥${cart.total }</strong>
 			</div>
 			<div class="bottom">
-				<a href="javascript:;" id="clear" class="clear">清空购物车</a> <a
-					href="./会员登录.htm" id="submit" class="submit">提交订单</a>
+				<a href="${ pageContext.request.contextPath }/cart/clearCart.do" id="clear" class="clear">清空购物车</a> <a
+					href="${pageContext.request.contextPath }/order/addOrder.do" id="submit" class="submit">提交订单</a>
 			</div>
 		</div>
 	</div>

@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import com.bruce.service.CategoryategoryService;
 import com.bruce.service.CategorysecondService;
+import com.bruce.service.OrdersService;
 import com.bruce.service.ProductService;
 import com.bruce.service.UserService;
 
@@ -31,4 +32,9 @@ public class BaseController {
 	@Getter
 	@Setter
 	private ProductService productService;
+	
+	@Resource
+	@Getter
+	@Setter
+	private OrdersService ordersService;
 }

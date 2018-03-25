@@ -14,6 +14,34 @@
   <sql id="Base_Column_List" >
     oid, total, ordertime, state, name, phone, addr, uid
   </sql>
+  
+  
+  <select id="selectByParams" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from orders
+    where 1=1 
+    <if test="oid != null">
+   	  and oid = #{oid,jdbcType=INTEGER}
+    </if>
+    <if test="uid != null" >
+      and uid = #{uid,jdbcType=INTEGER}
+    </if>
+  </select>
+  
+  <select id="countSelectByParams" resultType="Integer" parameterType="map">
+  	SELECT 
+  	count(*) 
+  	from orders
+    where 1=1 
+    <if test="oid != null">
+   	  and oid = #{oid,jdbcType=INTEGER}
+    </if>
+    <if test="uid != null" >
+      and uid = #{uid,jdbcType=INTEGER}
+    </if>
+  </select>
+  
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
@@ -32,7 +60,7 @@
       #{state,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
       #{addr,jdbcType=VARCHAR}, #{uid,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.bruce.model.Orders" >
+  <insert id="insertSelective" parameterType="com.bruce.model.Orders" useGeneratedKeys="true" keyProperty="oid">
     insert into orders
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="oid != null" >

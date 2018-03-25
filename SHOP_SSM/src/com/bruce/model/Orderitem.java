@@ -1,53 +1,34 @@
 package com.bruce.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 public class Orderitem {
+	@Getter
+	@Setter
     private Integer itemid;
 
+	@Getter
+	@Setter
     private Integer count;
 
+	@Getter
+	@Setter
     private Double subtotal;
 
+	@Getter
+	@Setter
     private Integer pid;
 
+	@Getter
+	@Setter
     private Integer oid;
 
-    public Integer getItemid() {
-        return itemid;
-    }
-
-    public void setItemid(Integer itemid) {
-        this.itemid = itemid;
-    }
-
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
-    }
-
-    public Double getSubtotal() {
-        return subtotal;
-    }
-
-    public void setSubtotal(Double subtotal) {
-        this.subtotal = subtotal;
-    }
-
-    public Integer getPid() {
-        return pid;
-    }
-
-    public void setPid(Integer pid) {
-        this.pid = pid;
-    }
-
-    public Integer getOid() {
-        return oid;
-    }
-
-    public void setOid(Integer oid) {
-        this.oid = oid;
-    }
+	@Getter
+	@Setter
+	private Product product;
+	
+	@Getter
+	@Setter
+	private Orders order;
 }
